@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - aprendiendo-github-actions
-  pull_request:
-    types: [opened, synchronize, reopened]
   issues:
     types:
       - labeled
@@ -17,7 +15,7 @@ on:
 
 jobs:
   hello-trigers:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
