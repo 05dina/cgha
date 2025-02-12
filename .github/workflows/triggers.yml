@@ -3,8 +3,9 @@ name: Triggers
 run-name: ¡Proof other triggers events!
 
 on:
-  branches:
-    - aprendiendo-github-actions
+  push:
+    branches:
+      - aprendiendo-github-actions
   pull_request:
     types: [opened, synchronize, reopened]
   issues:
