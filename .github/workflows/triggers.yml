@@ -32,12 +32,17 @@ jobs:
       - name: Variables
         run: |
           id
+          sudo id
           pwd
           date
           hostname
           echo $GITHUB_ENV
+          echo --------------------------------------------------------------------------------
+          env
+          echo --------------------------------------------------------------------------------
           echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
-          ls
+          echo --------------------------------------------------------------------------------
+          ls -la
 
       - name: String
         run: perl hello_trigger.pl
