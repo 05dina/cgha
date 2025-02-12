@@ -1,0 +1,26 @@
+---
+name: Hello World Workflow
+run-name: ¡Hello World!
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Define Variable
+        run: echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
+
+      - name: Print string
+        run: perl hello_world.pl
