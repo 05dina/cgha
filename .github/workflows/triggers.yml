@@ -1,0 +1,29 @@
+---
+name: Triggers
+run-name: ¡Proof other triggers events!
+
+on:
+  branches:
+    - aprendiendo-github-actions
+  pull_request:
+    types: [opened, synchronize, reopened]
+  issues:
+    types:
+      - labeled
+  schedule:
+    - '00 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  hello-trigers:
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        users:  actions/checkout
+
+      - name: Variables
+        run: echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
+
+      - name: String
+        run: perl hello_trigger.pl
