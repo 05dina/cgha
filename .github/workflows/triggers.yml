@@ -7,15 +7,18 @@ on:
     branches:
       - main
       - aprendiendo-github-actions
+    paths:
+      - hello_trigger.pl
   pull_request:
     branches:
       - main
-      - aprendiendo-github-actions
+    types:
+      - closed
   issues:
     types:
       - labeled
-#  schedule:
-#    - cron: '00/2 16 * * *'
+  schedule:
+    - cron: '0/10 20-23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -27,7 +30,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Variables
-        run: echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
+        run: |
+          id
+          pwd
+          date
+          hostname
+          echo $GITHUB_ENV
+          echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
+          ls
 
       - name: String
         run: perl hello_trigger.pl
