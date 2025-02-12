@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout
-        users:  actions/checkout
+        uses: actions/checkout
 
       - name: Variables
         run: echo "USERNAME=${{ github.actor }}" | tee -a $GITHUB_ENV
