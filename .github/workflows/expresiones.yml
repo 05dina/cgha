@@ -16,22 +16,22 @@ on:
 
 jobs:
   adult:
-    if: {{ inputs.age > 21 }}
+    if: ${{ inputs.age > 21 }}
     runs-on: ubuntu-latest
     steps:
       - name: Adult
-        run: echo ${{ inputs.name }} is an adult
+        run: echo "${{ inputs.name }} is an adult"
 
   teenager:
-    if: {{ inputs.age <= 21 && inputs.age > 12 }}
+    if: ${{ inputs.age <= 21 && inputs.age > 12 }}
     runs-on: ubuntu-latest
     steps:
       - name: Teenager
-        run: echo ${{ inputs.name }} is an teenager
+        run: echo "${{ inputs.name }} is a teenager"
 
   younger:
-    if: {{ inputs.age <= 12 }}
+    if: ${{ inputs.age <= 12 }}
     runs-on: ubuntu-latest
     steps:
-      name: Younger
-      run: echo ${{ inputs.name }} is an younger
+      - name: Younger
+        run: echo "${{ inputs.name }} is a younger"
