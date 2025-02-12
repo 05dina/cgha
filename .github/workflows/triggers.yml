@@ -12,7 +12,7 @@ on:
     types:
       - labeled
   schedule:
-    - '00 14 * * *'
+    - '12 14 * * *'
   workflow_dispatch:
 
 jobs:
