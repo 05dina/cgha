@@ -1,0 +1,37 @@
+---
+name: Expressions
+run-name: ¡Hello Expressions!
+
+on:
+  workflow_dispatch:
+    inputs:
+      age:
+        type: integer
+        required: true
+        description: 'Age'
+      name:
+        type: string
+        default: Ernie
+        description: 'Name'
+
+jobs:
+  adult:
+    if: {{ inputs.age > 21 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Adult
+        run: echo ${{ inputs.name }} is an adult
+
+  teenager:
+    if: {{ inputs.age <= 21 && inputs.age > 12 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Teenager
+        run: echo ${{ inputs.name }} is an teenager
+
+  younger:
+    if: {{ inputs.age <= 12 }}
+    runs-on: ubuntu-latest
+    steps:
+      name: Younger
+      run: echo ${{ inputs.name }} is an younger
