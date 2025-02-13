@@ -1,0 +1,14 @@
+---
+name: Contexts Workflow
+run-name: ¡Hello Contexts!
+
+on:
+  push:
+
+jobs:
+  check-main:
+    if: ${{ github.ref == 'ref/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check
+        run: echo "Deploy on $GITHUB_REF"
