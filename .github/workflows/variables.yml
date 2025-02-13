@@ -29,7 +29,7 @@ jobs:
             DAYS_LEFT=$(( BIRTH_DATE - CURRENT_DATE ))
           fi
 
-          echo "Hi ${{ vars.USER }}, ${{ secrets.PASSWORD }}"
+          echo "Hi ${{ vars.USER }}"
           echo "You were born on $BIRTHDAY, $BIRTH"
           echo
           echo "You have $DAYS_LEFT days left until your birthday"
