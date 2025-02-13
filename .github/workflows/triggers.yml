@@ -1,5 +1,5 @@
 ---
-name: Hello Triggers Workflow
+name: Triggers Workflow
 run-name: ¡Hello Triggers!
 
 on:
