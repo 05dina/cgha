@@ -2,12 +2,11 @@
 name: Contexts Workflow
 run-name: ¡Hello Contexts!
 
-on:
-  push:
+on: push
 
 jobs:
   check-main:
-    if: ${{ github.ref == 'ref/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check
