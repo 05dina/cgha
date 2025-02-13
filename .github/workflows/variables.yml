@@ -3,11 +3,12 @@ name: Variables Workflow
 run-name: ¡Hello Variables!
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   Birthday:
     runs-on: ubuntu-latest
+
     env:
       BIRTH:  1980
       BIRTHDAY: "02-14"
