@@ -1,0 +1,35 @@
+---
+name: Variables Workflow
+run-name: ¡Hello Variables!
+
+on:
+  workflow_dispatch
+
+jobs:
+  Birthday:
+    runs-on: ubuntu-latest
+    env:
+      BIRTH:  1980
+      BIRTHDAY: "02-14"
+
+    steps:
+      - name: Show vars, secrets and env
+        run: |
+          CURRENT_YEAR=$(date +%Y)
+          AGE=$((CURRENT_YEAR - BIRTH))
+
+          TODAY=$(date +%m-%d)
+          CURRENT_DATE=$(date -d "$TODAY" +%j)
+          BIRTH_DATE=$(date -d "$BIRTHDAY" +%j)
+
+          if [ "$CURRENT_DATE" -gt "$BIRTH_DATE" ]; then
+            DAYS_LEFT=$(( (365 - CURRENT_DATE) + BIRTH_DATE ))
+          else
+            DAYS_LEFT=$(( BIRTH_DATE - CURRENT_DATE ))
+          fi
+
+          echo "Hi ${{ vars.USER }}, ${{ secrets.PASSWORD }}"
+          echo "You were born on $BIRTHDAY, $BIRTH"
+          echo
+          echo "You have $DAYS_LEFT days left until your birthday"
+          echo "This year you will be $AGE years old"
