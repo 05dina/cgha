@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check
-        run: echo "Deploy on $GITHUB_REF"
+        run: echo "Deploy on $GITHUB_REF in the repo ${{ github.repository }}"
